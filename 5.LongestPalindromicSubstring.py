@@ -5,6 +5,10 @@ Created on Fri Sep  7 17:42:08 2018
 @author: pg255026
 """
 
+
+"""
+palindromic means?
+"""
 class Solution:
     def longestPalindrome(self, s):
         """
