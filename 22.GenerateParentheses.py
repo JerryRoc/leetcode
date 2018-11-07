@@ -43,6 +43,18 @@ class Solution:
         return ans
     
     @timeit
+    def generateParenthesis_solution2_mod(self, n):
+        def backtrack(S, left, right, ans = []):
+            if left > 0:
+                backtrack(S+'(', left-1, right)
+            if right > left:
+                backtrack(S+')', left, right-1)
+            if not right:
+                ans.append(S)
+            return ans
+        return backtrack('',n,n)
+    
+    @timeit
     def generateParenthesis_bestread(self, n):
         def generate(p, left, right, parens=[]):
             if left:         generate(p + '(', left-1, right)
@@ -94,7 +106,7 @@ class Solution:
 
 
 if __name__=='__main__':
-    n = 10
+    n = 3
     
-    rst = Solution().generateParenthesis_solution2(n)
-    #print(str(rst))
+    rst = Solution().generateParenthesis_solution2_mod(n)
+    print(str(rst))
